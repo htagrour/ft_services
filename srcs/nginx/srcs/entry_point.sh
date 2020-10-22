@@ -8,4 +8,3 @@ fi
 echo "Populating /root/.ssh/authorized_keys with the value from AUTHORIZED_KEYS env variable ..."
 echo "${AUTHORIZED_KEYS}" > /root/.ssh/authorized_keys
 supervisord -n -c /etc/supervisord.conf
-supervisord -n -c /etc/supervisord.conf
