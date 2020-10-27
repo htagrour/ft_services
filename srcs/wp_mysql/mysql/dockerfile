@@ -1,0 +1,3 @@
+FROM alpine:latest
+COPY srcs /
+CMD tail -f /dev/null

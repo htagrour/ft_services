@@ -1,0 +1,21 @@
+version: "3"
+services: 
+    wordpress:
+        build: ./wordpress/
+        ports: 
+            - "80:80"
+            - "443:443"
+        restart: always
+        depends_on: 
+            - mysql
+
+    mysql:
+        build: ./mysql
+        ports:
+            - "3306:3306"
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: 1234
+            MYSQL_DATABASE: wordpress_db
+            MYSQL_USER: hamza
+            MYSQL_PASSWORD: 1234
