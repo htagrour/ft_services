@@ -38,8 +38,8 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true;
  */
 $cfg['Servers'][$i]['host'] = "mysql-service";
 $cfg['Servers'][$i]['port'] = "3306";
-$cfg['Servers'][$i]['user'] = "user";
-$cfg['Servers'][$i]['password'] = "password";
+$cfg['Servers'][$i]['user'] = "hamza";
+$cfg['Servers'][$i]['password'] = "1234";
 
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';

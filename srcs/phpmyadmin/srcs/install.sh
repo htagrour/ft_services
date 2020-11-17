@@ -30,10 +30,10 @@ apk --update add \
 rm  -rf /tmp/* /var/cache/apk/*
 mkdir -p /run/nginx
 mv default.conf /etc/nginx/conf.d/default.conf
-
+rm 
 echo root:1234 | chpasswd
-touch /run/openrc/softlevel
 openrc
+touch /run/openrc/softlevel
 openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=hello.com" -addext "subjectAltName=DNS:hello.com" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 mv supervisord.conf /etc/
 mkdir -p /usr/share/webapps/

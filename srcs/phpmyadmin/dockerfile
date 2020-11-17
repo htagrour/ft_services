@@ -1,5 +1,5 @@
 FROM alpine
 COPY srcs /
 RUN sh install.sh
-EXPOSE 5000
+EXPOSE 443
 CMD ["sh", "entry_point.sh"]

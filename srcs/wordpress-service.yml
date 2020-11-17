@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress-service
+  name: wordpress
   labels:
     app: wordpress
 spec:
@@ -23,9 +23,9 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi
+      storage: 20Gi
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
@@ -45,7 +45,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: wordpress
+      - image: wordpress-serivce
         name: wordpress
         imagePullPolicy: Never
         ports:

@@ -1,5 +1,0 @@
-FROM alpine:latest
-COPY srcs /
-RUN sh install.sh
-EXPOSE 3306
-CMD tail -f /dev/null

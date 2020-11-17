@@ -1,2 +1,4 @@
 touch /run/openrc/softlevel
-supervisord -n -c /etc/supervisord.conf
+rc-service php-fpm7 start
+rc-service nginx start
+tail -f /dev/null

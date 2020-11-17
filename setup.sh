@@ -1,1 +1,1 @@
-https://wiki.alpinelinux.org/wiki/Production_DataBases_:_mysql
+TRY TO USE SUPERVISORD INSTED OF "tail" AYKHAN

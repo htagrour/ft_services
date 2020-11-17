@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin-service
+  labels:
+    app: phpmyadmin
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 443
+  selector:
+    app: phpmyadmin
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: phpmyadmin-pv-claim
+  labels:
+    app: phpmyadmin
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin-deployment
+  labels:
+    app: phpmyadmin
+spec:
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+      - image: phpmyadmin-service
+        name: phpmyadmin
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 443
+          name: phpmyadmin
+        volumeMounts:
+        - name: phpmyadmin-persistent-storage
+          mountPath: /var/lib/phpmyadmin
+      volumes:
+      - name: phpmyadmin-persistent-storage
+        persistentVolumeClaim:
+          claimName: phpmyadmin-pv-claim
