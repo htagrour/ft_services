@@ -25,7 +25,8 @@ apk --update add \
         php7-session \
         php7-soap \
         php7-xml \
-        php7-zip
+        php7-zip \
+        php7-mysqli
 rm  -rf /tmp/* /var/cache/apk/*
 mkdir -p /run/nginx
 mv default.conf /etc/nginx/conf.d/default.conf
@@ -42,3 +43,4 @@ wget http://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
 rm latest.tar.gz
 ln -s /usr/share/webapps/wordpress/ /var/www/localhost/htdocs/wordpress
+mv /wp-config.php /var/www/localhost/htdocs/wordpress

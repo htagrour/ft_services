@@ -9,7 +9,6 @@ spec:
     - port: 3306
   selector:
     app: mysql
-    tier: backend
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -34,14 +33,12 @@ spec:
   selector:
     matchLabels:
       app: mysql
-      tier: backend
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         app: mysql
-        tier: backend
     spec:
       containers:
       - image: mysql-service
@@ -51,7 +48,7 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: "1234"
         - name: MYSQL_DATABASE
-          value: "ikhan"
+          value: "wordpress_db"
         - name: MYSQL_USER
           value: "hamza"
         - name: MYSQL_PASS

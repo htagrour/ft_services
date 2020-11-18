@@ -20,7 +20,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'WordPress');
+define('DB_NAME', 'wordpress_db');
 
 /** MySQL database username */
 define('DB_USER', 'hamza');
@@ -29,7 +29,7 @@ define('DB_USER', 'hamza');
 define('DB_PASSWORD', '1234');
 
 /** MySQL hostname */
-define('DB_HOST', 'wordpress-mysql');
+define('DB_HOST', 'mysql-service');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -93,3 +93,4 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+?>

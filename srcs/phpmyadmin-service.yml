@@ -8,6 +8,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 443
+      targetPort: 443
   selector:
     app: phpmyadmin
 ---
@@ -22,7 +23,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 2Gi
 ---
 apiVersion: apps/v1
 kind: Deployment

@@ -45,7 +45,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: wordpress-serivce
+      - image: wordpress-service
         name: wordpress
         imagePullPolicy: Never
         ports:
