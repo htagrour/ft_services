@@ -1,26 +1,6 @@
 <?php
 
-$cfg['blowfish_secret'] = '';
-
-/**
- * List of env variables
- */
-$vars = array(
-    'PMA_HOST',
-	'PMA_PORT',
-	'PMA_USER',
-	'MYSQL_ROOT_PASSWORD'
-);
-
-/**
- * Stock env variables in tab
- */
-foreach ($vars as $var) {
-    $env = getenv($var);
-    if (!isset($_ENV[$var]) && $env !== false) {
-        $_ENV[$var] = $env;
-    }
-}
+$cfg['blowfish_secret'] = 'hello world';
 
 /**
  * Only one server
@@ -36,10 +16,11 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true;
 /**
  * Variable definition
  */
-$cfg['Servers'][$i]['host'] = "mysql-service";
-$cfg['Servers'][$i]['port'] = "3306";
-$cfg['Servers'][$i]['user'] = "hamza";
-$cfg['Servers'][$i]['password'] = "1234";
+$cfg['Servers'][$i]['host'] = 'mysql-service';
+$cfg['Servers'][$i]['port'] = '3306';
+$cfg['Servers'][$i]['user'] = 'hamza';
+$cfg['Servers'][$i]['password'] = '1234';
 
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
+?>

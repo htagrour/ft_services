@@ -30,8 +30,6 @@ apk --update add \
 rm  -rf /tmp/* /var/cache/apk/*
 mkdir -p /run/nginx
 mv default.conf /etc/nginx/conf.d/default.conf
-#mv index.html /var/www/localhost/htdocs/
-#mv index.php /var/www/localhost/htdocs/
 echo root:1234 | chpasswd
 touch /run/openrc/softlevel
 openrc

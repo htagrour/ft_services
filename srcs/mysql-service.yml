@@ -51,8 +51,6 @@ spec:
           value: "wordpress_db"
         - name: MYSQL_USER
           value: "hamza"
-        - name: MYSQL_PASS
-          value: "1234"
         ports:
         - containerPort: 3306
           name: mysql

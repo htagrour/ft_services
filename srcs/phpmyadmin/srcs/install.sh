@@ -1,5 +1,5 @@
 apk update
-apk add openrc nginx supervisor vim openssl --no-cache
+apk add openrc nginx supervisor vim  --no-cache #openssl
 #installing php-fpm depen
 apk --update add \
         php7 \
@@ -33,7 +33,7 @@ mv default.conf /etc/nginx/conf.d/default.conf
 echo root:1234 | chpasswd
 openrc
 touch /run/openrc/softlevel
-openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=hello.com" -addext "subjectAltName=DNS:hello.com" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+#openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=hello.com" -addext "subjectAltName=DNS:hello.com" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 mv supervisord.conf /etc/
 mkdir -p /usr/share/webapps/
 mv supervisord.conf /etc/
@@ -42,6 +42,7 @@ wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-l
 tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz
 rm phpMyAdmin-5.0.2-all-languages.tar.gz
 mv phpMyAdmin-5.0.2-all-languages phpmyadmin
+rm phpmyadmin/confi.sample.inc.php
 chmod -R 777 /usr/share/webapps/
 ln -s /usr/share/webapps/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
 mv /config.inc.php /usr/share/webapps/phpmyadmin

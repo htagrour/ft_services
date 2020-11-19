@@ -8,6 +8,11 @@ spec:
   type: LoadBalancer
   ports:
     - port: 443
+      name: https
+    - port: 80
+      name: http
+    - port: 22
+      name: ssh
   selector:
     app: nginx
 ---
@@ -32,4 +37,6 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 443
-          name: nginx
+        - containerPort: 80
+        - containerPort: 22
+        

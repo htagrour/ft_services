@@ -7,8 +7,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 443
-      targetPort: 443
+    - port: 5000
+      targetPort: 5000
   selector:
     app: phpmyadmin
 ---
@@ -45,8 +45,17 @@ spec:
         name: phpmyadmin
         imagePullPolicy: Never
         ports:
-        - containerPort: 443
+        - containerPort: 5000
           name: phpmyadmin
+        env:
+          - name: PMA_HOST
+            value: 'mysql-service'
+          - name: PMA_PORT
+            value: '3306'
+          - name: MYSQL_ROOT_PASSWORD
+            value: '1234PO'
+          - name: PMA_USER
+            value: 'hamza'
         volumeMounts:
         - name: phpmyadmin-persistent-storage
           mountPath: /var/lib/phpmyadmin
