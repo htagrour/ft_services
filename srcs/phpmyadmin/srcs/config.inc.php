@@ -1,6 +1,6 @@
 <?php
 
-$cfg['blowfish_secret'] = 'hello world';
+$cfg['blowfish_secret'] = 'RwR5BzHXQHvtWwsVivdBWqcup8tt9A+wI7YrUKxEa9A=';
 
 /**
  * Only one server
@@ -18,7 +18,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true;
  */
 $cfg['Servers'][$i]['host'] = 'mysql-service';
 $cfg['Servers'][$i]['port'] = '3306';
-$cfg['Servers'][$i]['user'] = 'hamza';
+$cfg['Servers'][$i]['user'] = 'root';
 $cfg['Servers'][$i]['password'] = '1234';
 
 $cfg['UploadDir'] = '';

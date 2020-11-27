@@ -1,22 +1,22 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-service
+  name: influxdb-service
   labels:
-    app: mysql
+    app: influxdb
 spec:
   ports:
-    - port: 3306
-      targetPort: 3306
+    - port: 8086
+      targetPort: 8086
   selector:
-    app: mysql
+    app: influxdb
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
+  name: influxdb-pv-claim
   labels:
-    app: mysql
+    app: influxdb
 spec:
   accessModes:
     - ReadWriteOnce
@@ -27,23 +27,23 @@ spec:
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: mysql-deployment
+  name: influxdb-deployment
   labels:
-    app: mysql
+    app: influxdb
 spec:
   selector:
     matchLabels:
-      app: mysql
+      app: influxdb
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
+        app: influxdb
     spec:
       containers:
-      - image: mysql-service
-        name: mysql
+      - image: influxdb-service
+        name: influxdb
         imagePullPolicy: Never
         env:
         - name: MYSQL_ROOT_PASSWORD
@@ -51,12 +51,12 @@ spec:
         - name: MYSQL_DATABASE
           value: "wordpress_db"
         ports:
-        - containerPort: 3306
-          name: mysql
+        - containerPort: 8086
+          name: influxdb
         volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+        - name: influxdb-persistent-storage
+          mountPath: /var/lib/influxdb
       volumes:
-      - name: mysql-persistent-storage
+      - name: influxdb-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: influxdb-pv-claim
