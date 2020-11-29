@@ -42,3 +42,4 @@ tar -xzvf latest.tar.gz
 rm latest.tar.gz
 ln -s /usr/share/webapps/wordpress/ /var/www/localhost/htdocs/wordpress
 mv /wp-config.php /var/www/localhost/htdocs/wordpress
+mkdir /etc/telegraf && mv /telegraf.conf /etc/telegraf

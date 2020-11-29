@@ -1,3 +1,4 @@
 openrc
 touch /run/openrc/softlevel
-telegraf&
+telegraf &
+supervisord -n -c /etc/supervisord.conf
