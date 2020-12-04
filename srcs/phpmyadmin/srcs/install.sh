@@ -46,4 +46,5 @@ mv phpMyAdmin-5.0.2-all-languages phpmyadmin
 chmod -R 777 /usr/share/webapps/
 ln -s /usr/share/webapps/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
 mv /config.inc.php /usr/share/webapps/phpmyadmin
-mkdir /etc/telegraf && mv /telegraf.conf /etc/telegraf
+rc-update add telegraf
+mv /telegraf.conf /etc
