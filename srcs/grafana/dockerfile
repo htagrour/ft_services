@@ -4,5 +4,7 @@ RUN apk add grafana --repository http://dl-3.alpinelinux.org/alpine/edge/testing
 RUN apk add openrc vim
 COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 COPY ./srcs/start.sh /
+COPY ./srcs/grafana.db /
+COPY ./srcs/grafana.db /usr/share/grafana/data/
 EXPOSE 3000
 CMD sh start.sh

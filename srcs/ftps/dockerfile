@@ -1,3 +1,5 @@
 FROM  alpine
-EXPOSE 21
-CMD pure-ftpd -j -Y 2 -p 21000:21000 -P __MINIKUBE_IP__
+COPY srcs /
+RUN sh install.sh
+EXPOSE 21 21000
+CMD sh entry_point.sh

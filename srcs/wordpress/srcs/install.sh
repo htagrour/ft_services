@@ -1,5 +1,6 @@
 apk update
 apk add openrc nginx supervisor vim openssl --no-cache
+apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
 #installing php-fpm depen
 apk --update add \
         php7 \
@@ -31,8 +32,8 @@ rm  -rf /tmp/* /var/cache/apk/*
 mkdir -p /run/nginx
 mv default.conf /etc/nginx/conf.d/default.conf
 echo root:1234 | chpasswd
-touch /run/openrc/softlevel
 openrc
+touch /run/openrc/softlevel
 openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=hello.com" -addext "subjectAltName=DNS:hello.com" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 mv supervisord.conf /etc/
 mkdir -p /usr/share/webapps/
@@ -42,4 +43,5 @@ tar -xzvf latest.tar.gz
 rm latest.tar.gz
 ln -s /usr/share/webapps/wordpress/ /var/www/localhost/htdocs/wordpress
 mv /wp-config.php /var/www/localhost/htdocs/wordpress
-mkdir /etc/telegraf && mv /telegraf.conf /etc/telegraf
+rc-update add telegraf
+mv /telegraf.conf /etc

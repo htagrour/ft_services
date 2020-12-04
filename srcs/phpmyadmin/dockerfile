@@ -2,4 +2,5 @@ FROM alpine
 COPY srcs /
 RUN sh install.sh
 EXPOSE 5000
+WORKDIR /
 CMD ["sh", "entry_point.sh"]
