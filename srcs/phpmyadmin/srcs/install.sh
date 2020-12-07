@@ -1,5 +1,5 @@
 apk update
-apk add openrc nginx supervisor vim  --no-cache #openssl
+apk add openrc nginx vim  --no-cache #openssl
 apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
 #installing php-fpm depen
 apk --update add \
@@ -32,9 +32,6 @@ rm  -rf /tmp/* /var/cache/apk/*
 mkdir -p /run/nginx
 mv default.conf /etc/nginx/conf.d/default.conf
 echo root:1234 | chpasswd
-openrc
-touch /run/openrc/softlevel
-mv supervisord.conf /etc/
 mkdir -p /usr/share/webapps/
 mv /supervisord.conf /etc
 cd /usr/share/webapps
@@ -42,9 +39,8 @@ wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-l
 tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz
 rm phpMyAdmin-5.0.2-all-languages.tar.gz
 mv phpMyAdmin-5.0.2-all-languages phpmyadmin
-#rm phpmyadmin/confi.sample.inc.php
 chmod -R 777 /usr/share/webapps/
 ln -s /usr/share/webapps/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
 mv /config.inc.php /usr/share/webapps/phpmyadmin
-rc-update add telegraf
-mv /telegraf.conf /etc
+mkdir /etc/telegraf
+mv /telegraf.conf /etc/telegraf/

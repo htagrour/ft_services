@@ -11,15 +11,15 @@ else
 
 	cat <<EOF >"tmp_file"
 FLUSH PRIVILEGES;
-CREATE USER 'root'@'%' IDENTIFIED BY "$MYSQL_ROOT_PASSWORD";
+CREATE USER 'root'@'%' IDENTIFIED BY "1234";
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS wordpress_db CHARACTER SET utf8 COLLATE utf8_general_ci;
 FLUSH PRIVILEGES;
+
 EOF
 	/usr/bin/mysqld --defaults-file=/etc/mysql/my.cnf --console --user=root --bootstrap < tmp_file
 	rm -f tmp_file
 fi
 
 telegraf &
-exec /usr/bin/mysqld --defaults-file=/etc/mysql/my.cnf --user=root --console
-mysql -u root -p1234 wordpress_db < wordpress_db.sql
+/usr/bin/mysqld --defaults-file=/etc/mysql/my.cnf --user=root --console

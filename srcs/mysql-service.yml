@@ -45,11 +45,6 @@ spec:
       - image: mysql-service
         name: mysql
         imagePullPolicy: Never
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "1234"
-        - name: MYSQL_DATABASE
-          value: "wordpress_db"
         ports:
         - containerPort: 3306
           name: mysql

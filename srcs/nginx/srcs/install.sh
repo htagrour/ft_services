@@ -3,7 +3,7 @@ apk add openrc nginx openssh supervisor vim openssl --no-cache
 apk add php-fpm
 apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
 rm  -rf /tmp/* /var/cache/apk/*
-mkdir /root/.ssh \
+mkdir -p /root/.ssh
 chmod 0700 /root/.ssh 
 mkdir -p /run/nginx
 mv default.conf /etc/nginx/conf.d/default.conf
@@ -16,5 +16,5 @@ mv sshd_config /etc/ssh
 ssh-keygen -A
 sed -i s/^#PasswordAuthentication\ yes/PasswordAuthentication\ no/ /etc/ssh/sshd_config
 mv supervisord.conf /etc/
-rc-update add telegraf
-mv /telegraf.conf /etc
+mkdir /etc/telegraf
+mv /telegraf.conf /etc/telegraf/
