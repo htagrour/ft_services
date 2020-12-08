@@ -1,6 +1,6 @@
 <?php
 
-$cfg['blowfish_secret'] = 'aUsHnfFH4N96t2xmWAbxaduLKt+na0XcmIWDd17BEtY=';
+$cfg['blowfish_secret'] = 'W/QxQXjX7GT8dL8w9NhOsorafyHCgWiZFWGg1YeG0pU=';
 
 /**
  * Only one server

@@ -36,22 +36,14 @@
     kubectl apply -f ./srcs/phpmyadmin-service.yml;  
     kubectl apply -f ./srcs/wordpress-service.yml;
     kubectl apply -f ./srcs/mysql-service.yml;
-	status="not working"
-    until [ $status=="Running" ];
+
+	container_status="not working"
+    until [ "$container_status" == "Running" ];
 	do
-		status=$(kubectl get pod | grep mysql | awk '{print $3}')
+		container_status=$(kubectl get pod | grep mysql | awk '{print $3}')
 		sleep 5
 	done	
-    kubectl exec -i $(kubectl get pod | grep mysql| cut -d " " -f1) -- mysql -u root -p1234 wordpress_db < srcs/mysql/srcs/wordpress_db.sql
-
-
-	# docker rmi -f grafana-service ;
-    # docker rmi -f influxdb-service ;
-    # docker rmi -f mysql-service   ;  
-	# docker rmi -f phpmyadmin-service ;
-    # docker rmi -f nginx-service ;
-    # docker rmi -f wordpress-service ;
-    # docker rmi -f ftps-service ;
+    kubectl exec -i $(kubectl get pod | grep mysql| awk '{print $1}') -- mysql -u root -p1234 wordpress_db < srcs/mysql/srcs/wordpress_db.sql
 
 
 

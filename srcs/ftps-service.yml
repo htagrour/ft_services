@@ -20,6 +20,19 @@ spec:
   selector:
     app: ftps
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ftps-pv-claim
+  labels:
+    app: ftps
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,7 +52,21 @@ spec:
       - image: ftps-service
         name: ftps
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - /check_procces.sh
+          initialDelaySeconds: 10
+          periodSeconds: 5
         ports:
         - containerPort: 21
         - containerPort: 21000
+        volumeMounts:
+        - name: ftps-persistent-storage
+          mountPath: /root/
+      volumes:
+      - name: ftps-persistent-storage
+        persistentVolumeClaim:
+          claimName: ftps-pv-claim
         

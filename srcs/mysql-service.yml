@@ -45,6 +45,13 @@ spec:
       - image: mysql-service
         name: mysql
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - /check_procces.sh
+          initialDelaySeconds: 10
+          periodSeconds: 5
         ports:
         - containerPort: 3306
           name: mysql
