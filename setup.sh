@@ -1,10 +1,9 @@
 # start minikube
     minikube start --extra-config=apiserver.service-node-port-range=21-30000;
+#setting env variable
+    eval $(minikube -p minikube docker-env);
     #enable metallb util
     minikube addons enable metallb;
-
-    #setting env variable
-    eval $(minikube -p minikube docker-env);
 
     # configure files
     IP=$(minikube ip)
