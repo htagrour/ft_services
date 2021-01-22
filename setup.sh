@@ -1,5 +1,5 @@
 # start minikube
-    minikube start --extra-config=apiserver.service-node-port-range=21-30000;
+    minikube start --vm-driver=virtualbox --extra-config=apiserver.service-node-port-range=21-30000;
 #setting env variable
     eval $(minikube -p minikube docker-env);
     #enable metallb util
