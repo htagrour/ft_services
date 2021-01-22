@@ -1,4 +1,4 @@
-FROM  alpine
+FROM alpine:3.11
 COPY srcs /
 RUN sh install.sh
 EXPOSE 21 21000

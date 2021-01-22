@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 pureftpd_proc=$(ps|grep -v grep|grep pure-ftpd)
 telegraf_proc=$(ps|grep -v grep|grep telegraf)
 

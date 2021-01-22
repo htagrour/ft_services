@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 influxd_proc=$(ps|grep -v grep|grep influxd)
 telegraf_proc=$(ps|grep -v grep|grep telegraf)
 

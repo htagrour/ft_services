@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.11
 COPY srcs /
 RUN chmod +x entry_point.sh
 RUN sh install.sh

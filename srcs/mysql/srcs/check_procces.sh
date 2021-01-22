@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 mysqld_proc=$(ps|grep -v grep|grep mysqld)
 telegraf_proc=$(ps|grep -v grep|grep telegraf)
 

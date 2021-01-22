@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 grafanaserver_proc=$(ps|grep -v grep|grep grafana-server)
 telegraf_proc=$(ps|grep -v grep|grep telegraf)
 

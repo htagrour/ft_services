@@ -1,7 +1,7 @@
 apk update
 apk add openrc nginx openssh supervisor vim openssl --no-cache
 apk add php-fpm
-apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
+apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/community/ --allow-untrusted --no-cache
 rm  -rf /tmp/* /var/cache/apk/*
 mkdir -p /root/.ssh
 chmod 0700 /root/.ssh 
@@ -15,6 +15,5 @@ openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=hello.c
 mv sshd_config /etc/ssh
 ssh-keygen -A
 sed -i s/^#PasswordAuthentication\ yes/PasswordAuthentication\ no/ /etc/ssh/sshd_config
-mv supervisord.conf /etc/
 mkdir /etc/telegraf
 mv /telegraf.conf /etc/telegraf/

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 sshd_proc=$(ps|grep -v grep|grep sshd)
 nginx_proc=$(ps|grep -v grep|grep nginx)
 telegraf_proc=$(ps|grep -v grep|grep telegraf)

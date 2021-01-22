@@ -1,6 +1,6 @@
 apk update
 apk add openrc nginx vim openssl --no-cache
-apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
+apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/community/ --allow-untrusted --no-cache
 #installing php-fpm depen
 apk --update add \
         php7 \
